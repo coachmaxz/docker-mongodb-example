@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+
+  database_mongodb_01:
+    image: mongo:6.0.10
+    container_name: database-mongodb-01
+    restart: always
+    environment:
+      - VIRTUAL_PORT=27017
+      - TERM=xterm
+      - AUTH=yes
+    volumes:
+      - ./backup:/backup
+      - ./data/mongodb_01:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - database_mongodb_network
+    command: mongod
+
+networks:
+  database_mongodb_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.10.0.0/24
+          gateway: 172.10.0.1
