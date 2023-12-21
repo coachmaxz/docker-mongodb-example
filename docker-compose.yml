@@ -9,6 +9,9 @@ services:
     environment:
 #     - MONGO_INITDB_ROOT_USERNAME=superadmin
 #     - MONGO_INITDB_ROOT_PASSWORD=123456
+#     - MONGO_INITDB_DATABASE=db_mongodb_01
+#     - MONGO_INITDB_USERNAME=admin_db_mongodb_01
+#     - MONGO_INITDB_PASSWORD=EX2a9q14g038cLrioLzQd
       - VIRTUAL_PORT=27017
       - TERM=xterm
       - AUTH=yes
