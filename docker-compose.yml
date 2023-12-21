@@ -3,10 +3,12 @@ version: '3.9'
 services:
 
   database_mongodb_01:
-    image: mongo:6.0.10
+    image: mongo:6.0.12
     container_name: database-mongodb-01
     restart: always
     environment:
+#     - MONGO_INITDB_ROOT_USERNAME=superadmin
+#     - MONGO_INITDB_ROOT_PASSWORD=123456
       - VIRTUAL_PORT=27017
       - TERM=xterm
       - AUTH=yes
@@ -25,5 +27,5 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.10.0.0/24
-          gateway: 172.10.0.1
+        - subnet: 172.11.0.0/24
+          gateway: 172.11.0.1
