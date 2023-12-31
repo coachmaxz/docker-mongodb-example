@@ -5,13 +5,11 @@ services:
   database_mongodb_01:
     image: mongo:6.0.12
     container_name: database-mongodb-01
+    platform: linux/arm64/v8
     restart: always
     environment:
-#     - MONGO_INITDB_ROOT_USERNAME=superadmin
-#     - MONGO_INITDB_ROOT_PASSWORD=123456
-#     - MONGO_INITDB_DATABASE=db_mongodb_01
-#     - MONGO_INITDB_USERNAME=admin_db_mongodb_01
-#     - MONGO_INITDB_PASSWORD=EX2a9q14g038cLrioLzQd
+      - MONGO_INITDB_ROOT_USERNAME=superadmin
+      - MONGO_INITDB_ROOT_PASSWORD=123456
       - VIRTUAL_PORT=27017
       - TERM=xterm
       - AUTH=yes
@@ -22,7 +20,7 @@ services:
       - "27017:27017"
     networks:
       - database_mongodb_network
-    command: mongod
+    command: mongod --auth
 
 networks:
   database_mongodb_network:
