@@ -1,9 +1,7 @@
-version: '3.9'
-
 services:
 
   database_mongodb_01:
-    image: mongo:6.0.13
+    image: mongo:7.0.7
     container_name: database-mongodb-01
     platform: linux/arm64/v8
     restart: always
